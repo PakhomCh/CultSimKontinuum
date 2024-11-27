@@ -111,13 +111,15 @@
 		{
 			"id": "k.move.portal",
 			"label": "Шаг в портал",
-			"warmup": 30,
+			"warmup": 10,
 			"craftable": true,
-			"signalimportantloop": true,
 			"startdescription": "Последнее, что видят мои глаза — темное полотно портала.",
 			"description": "Начинаю с чистого листа.",
 			"requirements": {
 				"k.portal": 1
+			},
+			"effects": {
+				"k.portal": -1
 			},
 			"purge": {
 				"k.reputation": 1,
@@ -132,7 +134,6 @@
 				"k.standing": 1
 			},
 			"actionId": "k.move",
-			"signalEndingFlavour": "Pale",
 			"linked": [
 				{
 					"id": "k.tp.move",
@@ -151,6 +152,9 @@
 			"label": "В Наратал",
 			"warmup": 10,
 			"description": "С прибытием.",
+			"effects": {
+				"k.rep.hidden.neutral": 1
+			},
 			"inductions": [
 				{
 					"id": "k.tp.act"
@@ -180,7 +184,13 @@
 			"id": "k.tp.standing",
 			"label": "И снова репутация",
 			"warmup": 10,
-			"actionId": "k.standing"
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			]
 		},
 		{
 			"id": "k.tp.convey",
@@ -197,11 +207,11 @@
 		{
 			"id": "k.getjob.monhun",
 			"label": "Стать охотником на монстров",
+			"maxexecutions": 1,
 			"warmup": 10,
 			"craftable": true,
 			"internaldeck": {
 				"spec": [
-					"k.body.dormant",
 					"k.job.monhun"
 				],
 				"draws": 2
@@ -210,15 +220,191 @@
 				"k.body": 1
 			},
 			"effects": {
-				"k.body": -1
+				"k.body": -1,
+				"k.body.dormant": 1
 			},
 			"actionId": "k.act"
 		},
 		{
-			"id": "k.getjob.manai"
+			"id": "k.getjob.manai",
+			"label": "Работа в архиве Манай",
+			"maxexecutions": 1,
+			"warmup": 10,
+			"craftable": true,
+			"internaldeck": {
+				"spec": [
+					"k.job.manai"
+				],
+				"draws": 1
+			},
+			"requirements": {
+				"k.mind": 1
+			},
+			"effects": {
+				"k.mind": -1,
+				"k.mind.dormant": 1
+			},
+			"actionId": "k.act"
 		},
 		{
-			"id": "k.getjob.trader"
+			"id": "k.getjob.trader",
+			"label": "Получить разрешение на торговлю",
+			"maxexecutions": 1,
+			"warmup": 10,
+			"craftable": true,
+			"internaldeck": {
+				"spec": [
+					"k.job.merchant"
+				],
+				"draws": 1
+			},
+			"requirements": {
+				"k.personality": 1
+			},
+			"effects": {
+				"k.personality": -1,
+				"k.personality.dormant": 1
+			},
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.rest.s.body",
+			"label": "Которткая передышка",
+			"warmup": 30,
+			"craftable": true,
+			"requirements": {
+				"k.body.dormant": 1
+			},
+			"effects": {
+				"k.body.dormant": -1,
+				"k.body": 1
+			},
+			"actionId": "k.rest"
+		},
+		{
+			"id": "k.rest.s.mind",
+			"label": "Которткая передышка",
+			"warmup": 30,
+			"craftable": true,
+			"requirements": {
+				"k.mind.dormant": 1
+			},
+			"effects": {
+				"k.mind.dormant": -1,
+				"k.mind": 1
+			},
+			"actionId": "k.rest"
+		},
+		{
+			"id": "k.rest.s.personality",
+			"label": "Которткая передышка",
+			"warmup": 30,
+			"craftable": true,
+			"requirements": {
+				"k.personality.dormant": 1
+			},
+			"effects": {
+				"k.personality.dormant": -1,
+				"k.personality": 1
+			},
+			"actionId": "k.rest"
+		},
+		{
+			"id": "k.temp.work.monhun",
+			"label": "Охота на монстров",
+			"warmup": 60,
+			"craftable": true,
+			"slots": [
+				{
+					"id": "k.extra.body",
+					"label": "Мои навыки"
+				}
+			],
+			"requirements": {
+				"k.job.monhun": 1
+			},
+			"effects": {
+				"k.body": -1,
+				"k.body.dormant": 1,
+				"k.coin": 1,
+				"k.rum.evil": 1
+			},
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.temp.work.manai",
+			"label": "Работа в архиве",
+			"warmup": 60,
+			"craftable": true,
+			"slots": [
+				{
+					"id": "k.extra.mind",
+					"label": "Мой разум"
+				}
+			],
+			"requirements": {
+				"k.job.manai": 1
+			},
+			"effects": {
+				"k.mind": -1,
+				"k.mind.dormant": 1,
+				"k.coin": 1,
+				"k.rum.mad": 1
+			},
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.temp.work.trader",
+			"label": "Торги на рынке",
+			"warmup": 60,
+			"craftable": true,
+			"slots": [
+				{
+					"id": "k.extra.personality",
+					"label": "Моя харизма"
+				}
+			],
+			"effects": {
+				"k.personality": -1,
+				"k.personality.dormant": 1,
+				"k.coin": 1,
+				"k.rum.good": 1
+			},
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.standing.rumcol",
+			"label": "Обо мне ходят слухи",
+			"warmup": 60,
+			"slots": [
+				{
+					"id": "k.standing.rum",
+					"label": "Слухи",
+					"required": {
+						"k.gossip": 1
+					},
+					"greedy": true
+				}
+			],
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			]
+		},
+		{
+			"id": "k.standing.rumfreeze",
+			"label": "Один день сменяет другой",
+			"warmup": 60,
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumcol",
+					"chance": 100
+				}
+			]
 		}
 	]
 }

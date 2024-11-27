@@ -21,7 +21,8 @@
 				"id": "k.rest",
 				"label": "Место для отдыха",
 				"required": {
-					"k.place": 1
+					"k.place": 1,
+					"k.fatigue": 1
 				}
 			}
 		},
@@ -36,6 +37,9 @@
 				"required": {
 					"k.job": 1,
 					"k.me": 1
+				},
+				"forbidden": {
+					"k.fatigue": 1
 				}
 			}
 		},

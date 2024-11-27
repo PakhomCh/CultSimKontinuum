@@ -241,7 +241,7 @@
 		},
 		{
 			"id": "k.job.monhun",
-			"label": "Охотник на монстров",
+			"label": "Работа: Охотник",
 			"slots": [],
 			"aspects": {
 				"k.job": 1
@@ -249,7 +249,7 @@
 		},
 		{
 			"id": "k.job.manai",
-			"label": "Архивист Либрариума",
+			"label": "Работа: Архивист",
 			"slots": [],
 			"aspects": {
 				"k.job": 1
@@ -257,7 +257,7 @@
 		},
 		{
 			"id": "k.job.merchant",
-			"label": "Торговец",
+			"label": "Работа: Торговец",
 			"slots": [],
 			"aspects": {
 				"k.job": 1
