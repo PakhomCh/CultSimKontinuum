@@ -1,0 +1,267 @@
+{
+	"elements": [
+		{
+			"id": "k.job.apothecary",
+			"label": "Подмастерье апотекария",
+			"slots": [],
+			"aspects": {
+				"k.job": 1
+			}
+		},
+		{
+			"id": "k.oddrune",
+			"label": "Странная руна",
+			"description": "Слегка пульсирующая, она, подобно солнцу, греет мои руки. Вот только, что мне с ней делать?",
+			"slots": [],
+			"aspects": {
+				"k.curio": 1
+			}
+		},
+		{
+			"id": "k.body",
+			"label": "Тело",
+			"slots": [],
+			"aspects": {
+				"k.me": 1
+			}
+		},
+		{
+			"id": "k.mind",
+			"label": "Разум",
+			"slots": [],
+			"aspects": {
+				"k.me": 1
+			}
+		},
+		{
+			"id": "k.personality",
+			"label": "Личность",
+			"slots": [],
+			"aspects": {
+				"k.me": 1
+			}
+		},
+		{
+			"id": "k.mind.dormant",
+			"label": "Затуманеный разум",
+			"slots": [],
+			"aspects": {
+				"k.me": 1,
+				"k.fatigue": 1
+			}
+		},
+		{
+			"id": "k.body.dormant",
+			"label": "Истощенное тело",
+			"slots": [],
+			"aspects": {
+				"k.me": 1,
+				"k.fatigue": 1
+			}
+		},
+		{
+			"id": "k.personality.dormant",
+			"label": "Изнеможденная личность",
+			"slots": [],
+			"aspects": {
+				"k.me": 1,
+				"k.fatigue": 1
+			}
+		},
+		{
+			"id": "k.coin",
+			"label": "Монеты",
+			"description": "Имел Бобби хобби — он деньги любил. Любил и копил.",
+			"slots": [],
+			"aspects": {
+				"k.worth": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.neutral",
+			"label": "Репутация: Лицо в толпе",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.good",
+			"label": "Репутация: Приятный незнакомец",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.gracious",
+			"label": "Репутация: Безымянный благодетель",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.bad",
+			"label": "Репутация: Репутация: Воздержанный дикарь",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.evil",
+			"label": "Репутация: Неуловимый вандал",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.strange",
+			"label": "Репутация: Неприметный чужеземец",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.hidden.mad",
+			"label": "Репутация: Молчаливый философ",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1
+			}
+		},
+		{
+			"id": "k.rep.open.neutral",
+			"label": "Репутация: Икона без лица",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 1
+			}
+		},
+		{
+			"id": "k.rep.open.good",
+			"label": "Репутация: Милостивец",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 2
+			}
+		},
+		{
+			"id": "k.rep.open.gracious",
+			"label": "Репутация: Светский лев",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 3
+			}
+		},
+		{
+			"id": "k.rep.open.bad",
+			"label": "Репутация: Варвар",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 2
+			}
+		},
+		{
+			"id": "k.rep.open.evil",
+			"label": "Репутация: Преступник",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 3
+			}
+		},
+		{
+			"id": "k.rep.open.strange",
+			"label": "Репутация: Инакомыслящий",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 2
+			}
+		},
+		{
+			"id": "k.rep.open.mad",
+			"label": "Репутация: Озаренный",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 3
+			}
+		},
+		{
+			"id": "k.intro.home",
+			"label": "Дом у городских стен",
+			"slots": [],
+			"aspects": {
+				"k.place": 1
+			}
+		},
+		{
+			"id": "k.portal",
+			"label": "Портал",
+			"slots": [],
+			"aspects": {
+				"k.place": 1
+			}
+		},
+		{
+			"id": "k.rum.good",
+			"label": "Шепот: Мои добродетели",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.rum.evil",
+			"label": "Шепот: Мои преступления",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.rum.mad",
+			"label": "Шепот: Мои знания",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.job.monhun",
+			"label": "Охотник на монстров",
+			"slots": [],
+			"aspects": {
+				"k.job": 1
+			}
+		},
+		{
+			"id": "k.job.manai",
+			"label": "Архивист Либрариума",
+			"slots": [],
+			"aspects": {
+				"k.job": 1
+			}
+		},
+		{
+			"id": "k.job.merchant",
+			"label": "Торговец",
+			"slots": [],
+			"aspects": {
+				"k.job": 1
+			}
+		}
+	]
+}

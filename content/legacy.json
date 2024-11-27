@@ -1,0 +1,44 @@
+{
+	"legacies": [
+		{
+			"id": "k.fromkattar",
+			"label": "Каттарский Скиталец",
+			"image": "fromkattar",
+			"startingVerbId": "k.act",
+			"description": "Мое тело состоит из песка и камней.\nЯ — дитя пустыни.",
+			"startdescription": "Знойное солнце, заходящее за горизонт, означает, что вновь наступает мой черед пожинать плоды пустыни, догнивающие под стенами замков орденов.",
+			"statusbarelements": [
+				"k.body",
+				"k.mind",
+				"k.personality",
+				"k.coin"
+			],
+			"effects": {
+				"k.job.apothecary": 1,
+				"k.coin": 2
+			},
+			"newstart": true,
+			"availableWithoutEndingMatch": true
+		},
+		{
+			"id": "k.coretapper",
+			"label": "Покоритель Континуума",
+			"image": "k.coretapper",
+			"startingVerbId": "k.move",
+			"statusbarelements": [
+				"k.body",
+				"k.mind",
+				"k.personality",
+				"k.coin"
+			],
+			"effects": {
+				"k.body": 1,
+				"k.mind": 1,
+				"k.personality": 1,
+				"k.portal": 1
+			},
+			"newstart": true,
+			"availableWithoutEndingMatch": true
+		}
+	]
+}

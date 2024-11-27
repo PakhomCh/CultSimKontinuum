@@ -1,0 +1,11 @@
+{
+	"endings": [
+		{
+			"id": "k.intro.death",
+			"label": "Смерть в песках",
+			"flavour": "Vile",
+			"anim": "DramaticLightEvil",
+			"achievementid": "XXX"
+		}
+	]
+}

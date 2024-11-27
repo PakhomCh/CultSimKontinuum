@@ -1,0 +1,224 @@
+{
+	"recipes": [
+		{
+			"id": "k.dojob",
+			"label": "Уход за умирающими",
+			"maxexecutions": 1,
+			"warmup": 30,
+			"craftable": true,
+			"internaldeck": {
+				"spec": [
+					"k.oddrune"
+				],
+				"draws": 1
+			},
+			"startdescription": "Вонь стоит по всюду. Солнце опалило каждого. Шансов на выживания сегодня нет почти ни у кого.",
+			"description": "У умирающего солдата в руках находится странный камень. В последнем усилии он с силой сжимает мои руки, заставляя меня забрать его.",
+			"requirements": {
+				"k.job.apothecary": 1
+			},
+			"effects": {
+				"k.job.apothecary": -1
+			},
+			"inductions": [
+				{
+					"id": "k.addrest"
+				},
+				{
+					"id": "k.addstanding"
+				}
+			],
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.addrest",
+			"label": "Сон на рассвете",
+			"maxexecutions": 1,
+			"warmup": 30,
+			"internaldeck": {
+				"spec": [
+					"k.body.dormant",
+					"k.mind.dormant",
+					"k.personality.dormant",
+					"k.intro.home"
+				],
+				"draws": 4
+			},
+			"startdescription": "Наконец, я возвращаюсь домой. Солнце уже восходит. Зной начинает клонить меня в сон.",
+			"description": "Я просыпаюсь в холодном поту, словно и не спал вовсе. Вчерашняя находка не дает мне покоя. К счастью, я знаю человека, который мог бы помочь.",
+			"actionId": "k.rest"
+		},
+		{
+			"id": "k.addstanding",
+			"label": "Слухи расползаются",
+			"warmup": 120,
+			"startdescription": "Заметив, как я прячу руну в карман, мой учитель отрекается от меня. \"Ворующий у мертвых не достоин даже смерти\" — таков его последний урок.",
+			"description": "Слухи о моей находке начинают расползаться по городу. В отличие от подобных мне, они смогут просочиться в стены города.",
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.intro.threat",
+					"chance": 100
+				}
+			]
+		},
+		{
+			"id": "k.addexamine",
+			"label": "Внимательный осмотр",
+			"warmup": 30,
+			"requirements": {
+				"k.oddrune": 1
+			}
+		},
+		{
+			"id": "k.addtalk"
+		},
+		{
+			"id": "k.addmove"
+		},
+		{
+			"id": "k.intro.threat",
+			"label": "Они обыскивают мой дом",
+			"warmup": 120,
+			"slots": [
+				{
+					"id": "k.intro.home",
+					"label": "Мой дом",
+					"required": {
+						"k.place": 1
+					},
+					"consumes": true,
+					"greedy": true
+				}
+			],
+			"effects": {
+				"k.intro.home": -1
+			},
+			"linked": [
+				{
+					"id": "k.intro.death",
+					"chance": 100
+				}
+			]
+		},
+		{
+			"id": "k.intro.death",
+			"label": "Они идут по мою душу",
+			"warmup": 30,
+			"signalimportantloop": true,
+			"ending": "k.intro.death"
+		},
+		{
+			"id": "k.move.portal",
+			"label": "Шаг в портал",
+			"warmup": 30,
+			"craftable": true,
+			"signalimportantloop": true,
+			"startdescription": "Последнее, что видят мои глаза — темное полотно портала.",
+			"description": "Начинаю с чистого листа.",
+			"requirements": {
+				"k.portal": 1
+			},
+			"purge": {
+				"k.reputation": 1,
+				"k.place": 1,
+				"k.gossip": 1
+			},
+			"deleteverb": {
+				"k.rest": 1,
+				"k.act": 1,
+				"k.examine": 1,
+				"k.convey": 1,
+				"k.standing": 1
+			},
+			"actionId": "k.move",
+			"signalEndingFlavour": "Pale",
+			"linked": [
+				{
+					"id": "k.tp.move",
+					"chance": 100
+				}
+			]
+		},
+		{
+			"id": "k.tp.act",
+			"label": "И снова за работу",
+			"warmup": 10,
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.tp.move",
+			"label": "В Наратал",
+			"warmup": 10,
+			"description": "С прибытием.",
+			"inductions": [
+				{
+					"id": "k.tp.act"
+				},
+				{
+					"id": "k.tp.examine"
+				},
+				{
+					"id": "k.tp.rest"
+				},
+				{
+					"id": "k.tp.convey"
+				},
+				{
+					"id": "k.tp.standing"
+				}
+			],
+			"actionId": "k.move"
+		},
+		{
+			"id": "k.tp.rest",
+			"label": "И снова бухать",
+			"warmup": 10,
+			"actionId": "k.rest"
+		},
+		{
+			"id": "k.tp.standing",
+			"label": "И снова репутация",
+			"warmup": 10,
+			"actionId": "k.standing"
+		},
+		{
+			"id": "k.tp.convey",
+			"label": "И снова общение",
+			"warmup": 10,
+			"actionId": "k.convey"
+		},
+		{
+			"id": "k.tp.examine",
+			"label": "И снова изучение",
+			"warmup": 10,
+			"actionId": "k.examine"
+		},
+		{
+			"id": "k.getjob.monhun",
+			"label": "Стать охотником на монстров",
+			"warmup": 10,
+			"craftable": true,
+			"internaldeck": {
+				"spec": [
+					"k.body.dormant",
+					"k.job.monhun"
+				],
+				"draws": 2
+			},
+			"requirements": {
+				"k.body": 1
+			},
+			"effects": {
+				"k.body": -1
+			},
+			"actionId": "k.act"
+		},
+		{
+			"id": "k.getjob.manai"
+		},
+		{
+			"id": "k.getjob.trader"
+		}
+	]
+}
