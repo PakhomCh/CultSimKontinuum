@@ -44,29 +44,38 @@
 		{
 			"id": "k.mind.dormant",
 			"label": "Затуманеный разум",
+			"decayTo": "k.mind",
 			"slots": [],
 			"aspects": {
 				"k.me": 1,
 				"k.fatigue": 1
-			}
+			},
+			"lifetime": 120,
+			"resaturate": true
 		},
 		{
 			"id": "k.body.dormant",
 			"label": "Истощенное тело",
+			"decayTo": "k.body",
 			"slots": [],
 			"aspects": {
 				"k.me": 1,
 				"k.fatigue": 1
-			}
+			},
+			"lifetime": 120,
+			"resaturate": true
 		},
 		{
 			"id": "k.personality.dormant",
 			"label": "Изнеможденная личность",
+			"decayTo": "k.personality",
 			"slots": [],
 			"aspects": {
 				"k.me": 1,
 				"k.fatigue": 1
-			}
+			},
+			"lifetime": 120,
+			"resaturate": true
 		},
 		{
 			"id": "k.coin",
@@ -82,78 +91,99 @@
 			"label": "Репутация: Лицо в толпе",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1
+				"k.reputation": 1,
+				"k.fame": 2
 			}
 		},
 		{
-			"id": "k.rep.hidden.good",
-			"label": "Репутация: Приятный незнакомец",
+			"id": "k.rep.hidden.poor",
+			"label": "Репутация: Бедняк",
+			"description": "Для общения с бедняками",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1
+				"k.reputation": 1,
+				"k.fame": 2
+			}
+		},
+		{
+			"id": "k.rep.hidden.loyal",
+			"label": "Репутация: Порядочный",
+			"description": "Блюститель порядка\nДля общения с властями",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 2
 			}
 		},
 		{
 			"id": "k.rep.hidden.gracious",
-			"label": "Репутация: Безымянный благодетель",
+			"label": "Репутация: Богач",
+			"description": "Богач\nДля общения с олигархией",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1
+				"k.reputation": 1,
+				"k.fame": 2
 			}
 		},
 		{
-			"id": "k.rep.hidden.bad",
-			"label": "Репутация: Репутация: Воздержанный дикарь",
+			"id": "k.rep.hidden.criminal",
+			"label": "Репутация: Преступник",
+			"description": "Преступник\nДля общения с криминалом",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1
+				"k.reputation": 1,
+				"k.fame": 2
 			}
 		},
 		{
-			"id": "k.rep.hidden.evil",
-			"label": "Репутация: Неуловимый вандал",
+			"id": "k.rep.hidden.occult",
+			"label": "Репутация: Инакомыслящий",
+			"description": "Безумец\nДля общения с потусторонним и культистами",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1
+				"k.reputation": 1,
+				"k.fame": 2
 			}
 		},
 		{
-			"id": "k.rep.hidden.strange",
-			"label": "Репутация: Неприметный чужеземец",
+			"id": "k.rep.hidden.educated",
+			"label": "Репутация: Образованный",
+			"description": "Эрудит / Образованный\nДля общения с учеными",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1
-			}
-		},
-		{
-			"id": "k.rep.hidden.mad",
-			"label": "Репутация: Молчаливый философ",
-			"slots": [],
-			"aspects": {
-				"k.reputation": 1
+				"k.reputation": 1,
+				"k.fame": 2
 			}
 		},
 		{
 			"id": "k.rep.open.neutral",
-			"label": "Репутация: Икона без лица",
+			"label": "Слава: Икона без лица",
 			"slots": [],
 			"aspects": {
-				"k.reputation": 1,
-				"k.fame": 1
+				"k.reputation": 1
 			}
 		},
 		{
-			"id": "k.rep.open.good",
-			"label": "Репутация: Милостивец",
+			"id": "k.rep.open.poor",
+			"label": "Слава: Бедняк",
 			"slots": [],
 			"aspects": {
 				"k.reputation": 1,
-				"k.fame": 2
+				"k.fame": 3
+			}
+		},
+		{
+			"id": "k.rep.open.loyal",
+			"label": "Слава: Порядочный",
+			"slots": [],
+			"aspects": {
+				"k.reputation": 1,
+				"k.fame": 3
 			}
 		},
 		{
 			"id": "k.rep.open.gracious",
-			"label": "Репутация: Светский лев",
+			"label": "Слава: Богач",
 			"slots": [],
 			"aspects": {
 				"k.reputation": 1,
@@ -161,17 +191,8 @@
 			}
 		},
 		{
-			"id": "k.rep.open.bad",
-			"label": "Репутация: Варвар",
-			"slots": [],
-			"aspects": {
-				"k.reputation": 1,
-				"k.fame": 2
-			}
-		},
-		{
-			"id": "k.rep.open.evil",
-			"label": "Репутация: Преступник",
+			"id": "k.rep.open.criminal",
+			"label": "Слава: Преступник",
 			"slots": [],
 			"aspects": {
 				"k.reputation": 1,
@@ -179,17 +200,17 @@
 			}
 		},
 		{
-			"id": "k.rep.open.strange",
-			"label": "Репутация: Инакомыслящий",
+			"id": "k.rep.open.occult",
+			"label": "Слава: Инакомыслящий",
 			"slots": [],
 			"aspects": {
 				"k.reputation": 1,
-				"k.fame": 2
+				"k.fame": 3
 			}
 		},
 		{
-			"id": "k.rep.open.mad",
-			"label": "Репутация: Озаренный",
+			"id": "k.rep.open.educated",
+			"label": "Слава: Образованный",
 			"slots": [],
 			"aspects": {
 				"k.reputation": 1,
@@ -213,29 +234,62 @@
 			}
 		},
 		{
-			"id": "k.rum.good",
-			"label": "Шепот: Мои добродетели",
-			"slots": [],
-			"aspects": {
-				"k.gossip": 1
-			},
-			"lifetime": 180
-		},
-		{
-			"id": "k.rum.evil",
+			"id": "k.rum.criminal",
 			"label": "Шепот: Мои преступления",
 			"slots": [],
 			"aspects": {
-				"k.gossip": 1
+				"k.gossip": 1,
+				"k.fame": 1
 			},
 			"lifetime": 180
 		},
 		{
-			"id": "k.rum.mad",
+			"id": "k.rum.educated",
 			"label": "Шепот: Мои знания",
 			"slots": [],
 			"aspects": {
-				"k.gossip": 1
+				"k.gossip": 1,
+				"k.fame": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.rum.gracious",
+			"label": "Шепот: Мои выходки",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1,
+				"k.fame": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.rum.loyal",
+			"label": "Шепот: Мои подвиги",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1,
+				"k.fame": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.rum.occult",
+			"label": "Шепот: Мои тайны",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1,
+				"k.fame": 1
+			},
+			"lifetime": 180
+		},
+		{
+			"id": "k.rum.poor",
+			"label": "Шепот: Мои просьбы",
+			"slots": [],
+			"aspects": {
+				"k.gossip": 1,
+				"k.fame": 1
 			},
 			"lifetime": 180
 		},

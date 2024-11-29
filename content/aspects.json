@@ -82,6 +82,19 @@
 			"label": "Собеседник",
 			"description": "Иногда душевный, иногда назойливый, иногда и вовсе странный.",
 			"isAspect": true
+		},
+		{
+			"id": "k.good",
+			"label": "Добродетель",
+			"isAspect": true
+		},
+		{
+			"id": "k.bad",
+			"isAspect": true
+		},
+		{
+			"id": "k.mad",
+			"isAspect": true
 		}
 	]
 }

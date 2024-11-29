@@ -1,114 +1,6 @@
 {
 	"recipes": [
 		{
-			"id": "k.dojob",
-			"label": "Уход за умирающими",
-			"maxexecutions": 1,
-			"warmup": 30,
-			"craftable": true,
-			"internaldeck": {
-				"spec": [
-					"k.oddrune"
-				],
-				"draws": 1
-			},
-			"startdescription": "Вонь стоит по всюду. Солнце опалило каждого. Шансов на выживания сегодня нет почти ни у кого.",
-			"description": "У умирающего солдата в руках находится странный камень. В последнем усилии он с силой сжимает мои руки, заставляя меня забрать его.",
-			"requirements": {
-				"k.job.apothecary": 1
-			},
-			"effects": {
-				"k.job.apothecary": -1
-			},
-			"inductions": [
-				{
-					"id": "k.addrest"
-				},
-				{
-					"id": "k.addstanding"
-				}
-			],
-			"actionId": "k.act"
-		},
-		{
-			"id": "k.addrest",
-			"label": "Сон на рассвете",
-			"maxexecutions": 1,
-			"warmup": 30,
-			"internaldeck": {
-				"spec": [
-					"k.body.dormant",
-					"k.mind.dormant",
-					"k.personality.dormant",
-					"k.intro.home"
-				],
-				"draws": 4
-			},
-			"startdescription": "Наконец, я возвращаюсь домой. Солнце уже восходит. Зной начинает клонить меня в сон.",
-			"description": "Я просыпаюсь в холодном поту, словно и не спал вовсе. Вчерашняя находка не дает мне покоя. К счастью, я знаю человека, который мог бы помочь.",
-			"actionId": "k.rest"
-		},
-		{
-			"id": "k.addstanding",
-			"label": "Слухи расползаются",
-			"warmup": 120,
-			"startdescription": "Заметив, как я прячу руну в карман, мой учитель отрекается от меня. \"Ворующий у мертвых не достоин даже смерти\" — таков его последний урок.",
-			"description": "Слухи о моей находке начинают расползаться по городу. В отличие от подобных мне, они смогут просочиться в стены города.",
-			"actionId": "k.standing",
-			"linked": [
-				{
-					"id": "k.intro.threat",
-					"chance": 100
-				}
-			]
-		},
-		{
-			"id": "k.addexamine",
-			"label": "Внимательный осмотр",
-			"warmup": 30,
-			"requirements": {
-				"k.oddrune": 1
-			}
-		},
-		{
-			"id": "k.addtalk"
-		},
-		{
-			"id": "k.addmove"
-		},
-		{
-			"id": "k.intro.threat",
-			"label": "Они обыскивают мой дом",
-			"warmup": 120,
-			"slots": [
-				{
-					"id": "k.intro.home",
-					"label": "Мой дом",
-					"required": {
-						"k.place": 1
-					},
-					"consumes": true,
-					"greedy": true
-				}
-			],
-			"effects": {
-				"k.intro.home": -1
-			},
-			"linked": [
-				{
-					"id": "k.intro.death",
-					"chance": 100
-				}
-			]
-		},
-		{
-			"id": "k.intro.death",
-			"label": "Они идут по мою душу",
-			"warmup": 30,
-			"signalimportantloop": true,
-			"ending": "k.intro.death"
-		},
-		{
 			"id": "k.move.portal",
 			"label": "Шаг в портал",
 			"warmup": 10,
@@ -155,6 +47,10 @@
 			"effects": {
 				"k.rep.hidden.neutral": 1
 			},
+			"deleteverb": {
+				"k.standing": 1
+			},
+			"actionId": "k.move",
 			"inductions": [
 				{
 					"id": "k.tp.act"
@@ -171,8 +67,7 @@
 				{
 					"id": "k.tp.standing"
 				}
-			],
-			"actionId": "k.move"
+			]
 		},
 		{
 			"id": "k.tp.rest",
@@ -182,8 +77,9 @@
 		},
 		{
 			"id": "k.tp.standing",
-			"label": "И снова репутация",
+			"label": "Слухи о моем прибытии",
 			"warmup": 10,
+			"startdescription": "У меня есть немного времени, пока слухи о моем появлении не расползутся по городу.",
 			"actionId": "k.standing",
 			"linked": [
 				{
@@ -268,111 +164,6 @@
 			"actionId": "k.act"
 		},
 		{
-			"id": "k.rest.s.body",
-			"label": "Которткая передышка",
-			"warmup": 30,
-			"craftable": true,
-			"requirements": {
-				"k.body.dormant": 1
-			},
-			"effects": {
-				"k.body.dormant": -1,
-				"k.body": 1
-			},
-			"actionId": "k.rest"
-		},
-		{
-			"id": "k.rest.s.mind",
-			"label": "Которткая передышка",
-			"warmup": 30,
-			"craftable": true,
-			"requirements": {
-				"k.mind.dormant": 1
-			},
-			"effects": {
-				"k.mind.dormant": -1,
-				"k.mind": 1
-			},
-			"actionId": "k.rest"
-		},
-		{
-			"id": "k.rest.s.personality",
-			"label": "Которткая передышка",
-			"warmup": 30,
-			"craftable": true,
-			"requirements": {
-				"k.personality.dormant": 1
-			},
-			"effects": {
-				"k.personality.dormant": -1,
-				"k.personality": 1
-			},
-			"actionId": "k.rest"
-		},
-		{
-			"id": "k.temp.work.monhun",
-			"label": "Охота на монстров",
-			"warmup": 60,
-			"craftable": true,
-			"slots": [
-				{
-					"id": "k.extra.body",
-					"label": "Мои навыки"
-				}
-			],
-			"requirements": {
-				"k.job.monhun": 1
-			},
-			"effects": {
-				"k.body": -1,
-				"k.body.dormant": 1,
-				"k.coin": 1,
-				"k.rum.evil": 1
-			},
-			"actionId": "k.act"
-		},
-		{
-			"id": "k.temp.work.manai",
-			"label": "Работа в архиве",
-			"warmup": 60,
-			"craftable": true,
-			"slots": [
-				{
-					"id": "k.extra.mind",
-					"label": "Мой разум"
-				}
-			],
-			"requirements": {
-				"k.job.manai": 1
-			},
-			"effects": {
-				"k.mind": -1,
-				"k.mind.dormant": 1,
-				"k.coin": 1,
-				"k.rum.mad": 1
-			},
-			"actionId": "k.act"
-		},
-		{
-			"id": "k.temp.work.trader",
-			"label": "Торги на рынке",
-			"warmup": 60,
-			"craftable": true,
-			"slots": [
-				{
-					"id": "k.extra.personality",
-					"label": "Моя харизма"
-				}
-			],
-			"effects": {
-				"k.personality": -1,
-				"k.personality.dormant": 1,
-				"k.coin": 1,
-				"k.rum.good": 1
-			},
-			"actionId": "k.act"
-		},
-		{
 			"id": "k.standing.rumcol",
 			"label": "Обо мне ходят слухи",
 			"warmup": 60,
@@ -386,8 +177,33 @@
 					"greedy": true
 				}
 			],
+			"startdescription": "Если их станет слишком много, это скажется на моей репутации.",
 			"actionId": "k.standing",
 			"linked": [
+				{
+					"id": "k.standing.more.criminal",
+					"chance": 100
+				},
+				{
+					"id": "k.standing.more.educated",
+					"chance": 100
+				},
+				{
+					"id": "k.standing.more.gracious",
+					"chance": 100
+				},
+				{
+					"id": "k.standing.more.loyal",
+					"chance": 100
+				},
+				{
+					"id": "k.standing.more.occult",
+					"chance": 100
+				},
+				{
+					"id": "k.standing.more.poor",
+					"chance": 100
+				},
 				{
 					"id": "k.standing.rumfreeze",
 					"chance": 100
@@ -395,9 +211,154 @@
 			]
 		},
 		{
+			"id": "k.standing.more.criminal",
+			"label": "Теперь я преступник",
+			"warmup": 10,
+			"startdescription": "В городских сплетнях меня часто стали описывать как жестокого и грубого человека.",
+			"requirements": {
+				"k.rum.criminal": 3
+			},
+			"effects": {
+				"k.rum.criminal": -3
+			},
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			],
+			"inductions": [
+				{
+					"id": "k.reputation.to.criminal"
+				}
+			]
+		},
+		{
+			"id": "k.standing.more.educated",
+			"label": "Теперь я преступник",
+			"warmup": 10,
+			"startdescription": "В городских сплетнях меня часто стали описывать как жестокого и грубого человека.",
+			"requirements": {
+				"k.rum.educated": 3
+			},
+			"effects": {
+				"k.rum.educated": -3
+			},
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			],
+			"inductions": [
+				{
+					"id": "k.reputation.to.educated"
+				}
+			]
+		},
+		{
+			"id": "k.standing.more.gracious",
+			"label": "Теперь я богач",
+			"warmup": 10,
+			"startdescription": "В городских сплетнях меня часто стали описывать как жестокого и грубого человека.",
+			"requirements": {
+				"k.rum.gracious": 3
+			},
+			"effects": {
+				"k.rum.gracious": -3
+			},
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			],
+			"inductions": [
+				{
+					"id": "k.reputation.to.gracious"
+				}
+			]
+		},
+		{
+			"id": "k.standing.more.loyal",
+			"label": "Теперь я законник",
+			"warmup": 10,
+			"startdescription": "В городских сплетнях меня часто стали описывать как жестокого и грубого человека.",
+			"requirements": {
+				"k.rum.loyal": 3
+			},
+			"effects": {
+				"k.rum.loyal": -3
+			},
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			],
+			"inductions": [
+				{
+					"id": "k.reputation.to.loyal"
+				}
+			]
+		},
+		{
+			"id": "k.standing.more.occult",
+			"label": "Теперь я иноверец",
+			"warmup": 10,
+			"startdescription": "В городских сплетнях меня часто стали описывать как жестокого и грубого человека.",
+			"requirements": {
+				"k.rum.occult": 3
+			},
+			"effects": {
+				"k.rum.occult": -3
+			},
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			],
+			"inductions": [
+				{
+					"id": "k.reputation.to.occult"
+				}
+			]
+		},
+		{
+			"id": "k.standing.more.poor",
+			"label": "Теперь я бедняк",
+			"warmup": 10,
+			"startdescription": "В городских сплетнях меня часто стали описывать как жестокого и грубого человека.",
+			"requirements": {
+				"k.rum.poor": 3
+			},
+			"effects": {
+				"k.rum.poor": -3
+			},
+			"actionId": "k.standing",
+			"linked": [
+				{
+					"id": "k.standing.rumfreeze",
+					"chance": 100
+				}
+			],
+			"inductions": [
+				{
+					"id": "k.reputation.to.poor"
+				}
+			]
+		},
+		{
 			"id": "k.standing.rumfreeze",
 			"label": "Один день сменяет другой",
 			"warmup": 60,
+			"startdescription": "Люди просыпаются и вновь ложатся спать. В суете их однообразных жизей многое может потеряться.",
 			"actionId": "k.standing",
 			"linked": [
 				{
@@ -405,6 +366,144 @@
 					"chance": 100
 				}
 			]
+		},
+		{
+			"id": "k.reputation.to.criminal",
+			"label": "Я известен как преступник",
+			"warmup": 60,
+			"internaldeck": {
+				"spec": [
+					"k.rep.hidden.criminal"
+				],
+				"draws": 1
+			},
+			"slots": [
+				{
+					"id": "k.rep",
+					"label": "Каким меня знали",
+					"required": {
+						"k.reputation": 1
+					},
+					"consumes": true
+				}
+			],
+			"startdescription": "Теперь мне открыты дороги в подполье.",
+			"actionId": "k.standing.change"
+		},
+		{
+			"id": "k.reputation.to.educated",
+			"label": "Я известен как образованный",
+			"warmup": 60,
+			"internaldeck": {
+				"spec": [
+					"k.rep.hidden.educated"
+				],
+				"draws": 1
+			},
+			"slots": [
+				{
+					"id": "k.rep",
+					"label": "Каким меня знали",
+					"required": {
+						"k.reputation": 1
+					},
+					"consumes": true
+				}
+			],
+			"startdescription": "Теперь мне открыты дороги в круги ученых.",
+			"actionId": "k.standing.change"
+		},
+		{
+			"id": "k.reputation.to.gracious",
+			"label": "Я известен как богач",
+			"warmup": 60,
+			"internaldeck": {
+				"spec": [
+					"k.rep.hidden.gracious"
+				],
+				"draws": 1
+			},
+			"slots": [
+				{
+					"id": "k.rep",
+					"label": "Каким меня знали",
+					"required": {
+						"k.reputation": 1
+					},
+					"consumes": true
+				}
+			],
+			"startdescription": "Теперь мне открыты дороги в высший свет.",
+			"actionId": "k.standing.change"
+		},
+		{
+			"id": "k.reputation.to.loyal",
+			"label": "Я известен как законник",
+			"warmup": 60,
+			"internaldeck": {
+				"spec": [
+					"k.rep.hidden.loyal"
+				],
+				"draws": 1
+			},
+			"slots": [
+				{
+					"id": "k.rep",
+					"label": "Каким меня знали",
+					"required": {
+						"k.reputation": 1
+					},
+					"consumes": true
+				}
+			],
+			"startdescription": "Теперь мне открыты дороги в органы власти.",
+			"actionId": "k.standing.change"
+		},
+		{
+			"id": "k.reputation.to.occult",
+			"label": "Я известен как безумец",
+			"warmup": 60,
+			"internaldeck": {
+				"spec": [
+					"k.rep.hidden.occult"
+				],
+				"draws": 1
+			},
+			"slots": [
+				{
+					"id": "k.rep",
+					"label": "Каким меня знали",
+					"required": {
+						"k.reputation": 1
+					},
+					"consumes": true
+				}
+			],
+			"startdescription": "Теперь мне открыты знания древних.",
+			"actionId": "k.standing.change"
+		},
+		{
+			"id": "k.reputation.to.poor",
+			"label": "Я известен как бедняк",
+			"warmup": 60,
+			"internaldeck": {
+				"spec": [
+					"k.rep.hidden.poor"
+				],
+				"draws": 1
+			},
+			"slots": [
+				{
+					"id": "k.rep",
+					"label": "Каким меня знали",
+					"required": {
+						"k.reputation": 1
+					},
+					"consumes": true
+				}
+			],
+			"startdescription": "Теперь почти все сторонятся меня.",
+			"actionId": "k.standing.change"
 		}
 	]
 }
